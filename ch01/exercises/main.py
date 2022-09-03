@@ -1,0 +1,11 @@
+print(10 * 10)
+print(10 ** 10)
+print(15 / 10)
+print(15 // 10)
+print(-15 // 10)
+print(15 % 10)
+print(10 % 15)
+print(10 % 10)
+print(0 % 10)
+print(10 / 15)
+##the last answer is wrong because the actual answer is an infinitely repeating value, 0.6 forever, but it only returns up to a certain number of decimal places.
