@@ -14,7 +14,7 @@ turtle13.pencolor(color)
 turtle13.fillcolor(color)
 turtle13.begin_fill()
 
-for i in [angle] * sides_num
+for i in [angle] * sides_num:
   turtle13.forward(sides_len)
   turtle13.left(angle)
   
