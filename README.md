@@ -14,4 +14,4 @@ Preferred Name: Will
 
 Discord username: BlackWillow69#5679
 
-REPL url: [https://replit.com/@WillSteddin](https://replit.com/join/evmvkxrxjv-willsteddin)
+REPL url: (https://replit.com/join/evmvkxrxjv-willsteddin)
