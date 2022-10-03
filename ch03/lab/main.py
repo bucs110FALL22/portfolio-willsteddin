@@ -49,9 +49,17 @@ coords = []
 sideLength = 100
 xoffset = 300
 yoffset = 180
-numSides = [3, 4, 6, 9, 360]
+#numSides = [3, 4, 6, 9, 360]
 pygame.display.flip()
 pygame.time.wait(2000)
+
+numSides = []
+numShapes = int(input("How many shapes would you like to draw? "))
+for i in range(numShapes):
+  shape = int(input("Please enter how many sides you would like this shape to be: "))
+  numSides.append(shape)
+  
+
 for _ in numSides:
   for i in range(_):
     theta = (2.0 * math.pi * (i/_) )
