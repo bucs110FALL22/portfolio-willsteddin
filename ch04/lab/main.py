@@ -4,7 +4,6 @@ import random
 
 pygame.init
 
-
 window = pygame.display.set_mode((400,400))
 windowSize = pygame.display.get_window_size()
 print(windowSize)
@@ -12,7 +11,6 @@ print(windowSize)
 color1 = "lime"
 color2 = "dodgerblue"
 center = (200,200)
-i = 1
 hitCount = 0
 game = True
 
