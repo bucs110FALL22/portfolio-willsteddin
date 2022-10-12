@@ -89,7 +89,7 @@ while versus:
   for i in range(1,11):
     print(f"ROUND {i}!")
     for _ in [color1, color2]:
-      pygame.time.wait(1000)
+      pygame.time.wait(500)
       xcor = random.randrange(0,400)
       ycor = random.randrange(0,400)
       distance_from_center = math.hypot((xcor-200), (ycor-200))
