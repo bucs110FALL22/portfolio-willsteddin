@@ -69,9 +69,8 @@ def threePlusOne_graph(upperLimit):
     """
     This is a continuation of the previous function that also tracks the current maximum count and graphs the number of iterations for each integer.
     """
-    displayLength = 100
-    displayWidth = 100
-    graph = pygame.display.set_mode((displayLength, displayWidth))
+  
+    graph = pygame.display.set_mode()
 
     threePlusOne_dict = {}
     maxSoFar = 0
@@ -90,11 +89,11 @@ def threePlusOne_graph(upperLimit):
     #coordinates = threePlusOne_dict.items()
     coordinates = []
     for i in threePlusOne_dict.items():
-        coordinates.append(i)
+        coordinates.append((i[0]*10, i[1]*10))
     print(coordinates)
-    newGraph = pygame.transform.flip(graph, False, True)
-    pygame.draw.lines(newGraph, "snow", False, (coordinates))
-    graph.blit(newGraph, (0, 0))
+    graph = pygame.transform.flip(graph, False, True)
+    pygame.draw.lines(graph, "snow", False, (coordinates))
+    graph.blit(graph, (0, 0))
     pygame.display.flip()
     pygame.time.wait(1000)
 
@@ -106,4 +105,4 @@ def threePlusOne_graph(upperLimit):
     # pygame.display.flip()
 
 
-threePlusOne_graph(20)
+threePlusOne_graph(10)
