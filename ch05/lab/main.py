@@ -1,6 +1,6 @@
 import pygame
-pygame.init()
 
+pygame.init()
 """
 PART A
 """
@@ -69,14 +69,14 @@ def threePlusOne_graph(upperLimit):
     """
     This is a continuation of the previous function that also tracks the current maximum count and graphs the number of iterations for each integer.
     """
-  
+
     graph = pygame.display.set_mode()
 
     threePlusOne_dict = {}
     maxSoFar = 0
-    for i in range(2, upperLimit + 1):
+    for integer in range(2, upperLimit + 1):
         count = 0
-        n = i
+        n = integer
         while n != 1:
             count += 1
             if n % 2 == 0:
@@ -85,23 +85,23 @@ def threePlusOne_graph(upperLimit):
                 n = (3 * n) + 1
         if count > maxSoFar:
             maxSoFar = count
-        threePlusOne_dict[i] = count
+        threePlusOne_dict[integer] = count
         coordinates = []
-        font = pygame.font.Font(None, 50)        
-        if i > 2:
-          msg = font.render(f"{maxSoFar}", True, "snow")
-          for k in threePlusOne_dict.items():
-            coordinates.append((k[0]*7, k[1]*7))
-          print(coordinates)
-          graph.fill("black")
-          pygame.draw.lines(graph, "snow", False, (coordinates))
-          newGraph = pygame.transform.flip(graph, False, True)
-          pygame.display.flip()
-          graph.blit(newGraph, (0, 0))
-          graph.blit(msg, (30,100))
-          pygame.display.flip()
-          pygame.time.wait(100) 
-    pygame.time.wait(1000)
+        font = pygame.font.Font(None, 75)
+        if integer > 2:
+            msg = font.render(f"{maxSoFar}", True, "snow")
+            for dictItem in threePlusOne_dict.items():
+                coordinates.append((dictItem[0] * 7, dictItem[1] * 7))
+            print(coordinates)
+            graph.fill("black")
+            pygame.draw.lines(graph, "snow", False, (coordinates))
+            newGraph = pygame.transform.flip(graph, False, True)
+            pygame.display.flip()
+            graph.blit(newGraph, (0, 0))
+            graph.blit(msg, (30, 100))
+            pygame.display.flip()
+            pygame.time.wait(100)
+    pygame.time.wait(3000)
 
     # coordinates = [(0,0)]
     # coordinates.append(threePlusOne_dict.items())
@@ -112,9 +112,3 @@ def threePlusOne_graph(upperLimit):
 
 
 threePlusOne_graph(60)
-
-
-
-
-
-  
