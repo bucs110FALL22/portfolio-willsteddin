@@ -1,6 +1,6 @@
 import pygame
-
 pygame.init()
+
 """
 PART A
 """
@@ -86,15 +86,21 @@ def threePlusOne_graph(upperLimit):
         if count > maxSoFar:
             maxSoFar = count
         threePlusOne_dict[i] = count
-    #coordinates = threePlusOne_dict.items()
-    coordinates = []
-    for i in threePlusOne_dict.items():
-        coordinates.append((i[0]*10, i[1]*10))
-    print(coordinates)
-    graph = pygame.transform.flip(graph, False, True)
-    pygame.draw.lines(graph, "snow", False, (coordinates))
-    graph.blit(graph, (0, 0))
-    pygame.display.flip()
+        coordinates = []
+        font = pygame.font.Font(None, 50)        
+        if i > 2:
+          msg = font.render(f"{maxSoFar}", True, "snow")
+          for k in threePlusOne_dict.items():
+            coordinates.append((k[0]*7, k[1]*7))
+          print(coordinates)
+          graph.fill("black")
+          pygame.draw.lines(graph, "snow", False, (coordinates))
+          newGraph = pygame.transform.flip(graph, False, True)
+          pygame.display.flip()
+          graph.blit(newGraph, (0, 0))
+          graph.blit(msg, (30,100))
+          pygame.display.flip()
+          pygame.time.wait(100) 
     pygame.time.wait(1000)
 
     # coordinates = [(0,0)]
@@ -105,4 +111,10 @@ def threePlusOne_graph(upperLimit):
     # pygame.display.flip()
 
 
-threePlusOne_graph(10)
+threePlusOne_graph(60)
+
+
+
+
+
+  
