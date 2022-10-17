@@ -10,13 +10,13 @@ def percentageToLetter(grade):
     else:
         return("F")
 
-percentageToLetter(70)
-
 def isPassing(letter):
     if letter == "A" or letter == "B" or letter == "C":
         return(True)
     else:
         return(False)
+
+
 
 gradeNumber = int(input("Enter the grade you received on the exam: "))
 gradeLetter = percentageToLetter(gradeNumber)
