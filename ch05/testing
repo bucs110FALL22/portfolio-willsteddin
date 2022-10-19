@@ -1,3 +1,6 @@
+from ssl import ALERT_DESCRIPTION_UNEXPECTED_MESSAGE
+
+
 def square(num):
     result = 0
     for i in range(abs(num)):
@@ -8,4 +11,20 @@ def main():
     res = square(5)
     print(res)
 
+
+
+def removeVowels(text):
+    vowels = "aeiou"
+    vowels += vowels.upper()
+    newText = ""
+    for ch in text:
+        if ch not in vowels:
+            newText += ch
+    return newText
+
+def main():
+    mystr = "compsci"
+    print(removeVowels(mystr))
+    mystr = "LEEEEEEEROY JENKINS!"
+    print(removeVowels(mystr))
 main()
