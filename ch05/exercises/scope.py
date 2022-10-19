@@ -21,8 +21,10 @@ def exponentiate(base, exponent):
     if exponent >= 0:
         if exponent == 1:
             result = base
+            return result
         elif exponent == 0:
             result =  1
+            return result
         if exponent%2 != 0 and base < 0:
             result = abs(base)
             for i in range(exponent-1):
@@ -46,7 +48,7 @@ def square(num):
 def main():
     res = multiply(3,5)
     print(res)
-    res = exponentiate(-3,5)
+    res = exponentiate(-3,0)
     print(res)
     res = square(-5)
     print(res)
