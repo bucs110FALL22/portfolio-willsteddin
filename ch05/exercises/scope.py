@@ -48,7 +48,11 @@ def square(num):
     return exponentiate(num, 2)
 
 def main():
+    res = multiply(5, 3)
+    print(res)
     res = exponentiate(5, -2)
+    print(res)
+    res = square(11)
     print(res)
 main()
 
