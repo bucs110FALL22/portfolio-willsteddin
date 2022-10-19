@@ -34,6 +34,8 @@ def exponentiate(base, exponent):
             result = abs(base)
             for i in range(exponent-1):
                 result = result * abs(base)
+    else:
+        result = 1/exponentiate(base, abs(exponent))
     return result
 
 def square(num):
@@ -46,13 +48,8 @@ def square(num):
     return exponentiate(num, 2)
 
 def main():
-    res = multiply(3,5)
+    res = exponentiate(5, -2)
     print(res)
-    res = exponentiate(-3,0)
-    print(res)
-    res = square(-5)
-    print(res)
-
 main()
 
 
