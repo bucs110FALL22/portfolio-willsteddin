@@ -1,0 +1,11 @@
+def square(num):
+    result = 0
+    for i in range(abs(num)):
+        result += abs(num)
+    return result
+
+def main():
+    res = square(5)
+    print(res)
+
+main()
