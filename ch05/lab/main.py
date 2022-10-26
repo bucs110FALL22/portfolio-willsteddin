@@ -92,7 +92,6 @@ def threePlusOne_graph(upperLimit):
             msg = font.render(f"{maxSoFar}", True, "snow")
             for dictItem in threePlusOne_dict.items():
                 coordinates.append((dictItem[0] * 7, dictItem[1] * 7))
-            print(coordinates)
             graph.fill("black")
             pygame.draw.lines(graph, "snow", False, (coordinates))
             newGraph = pygame.transform.flip(graph, False, True)
