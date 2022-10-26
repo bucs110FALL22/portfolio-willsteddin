@@ -1,6 +1,10 @@
+from socketserver import StreamRequestHandler
 import time
 import animal
 
-jeff = animal.Animal()
+dog = animal.Animal()
 
-print(jeff, jeff.name, jeff.type)
+
+# dog.name = "Seamus"
+# dog.type = "Canine"
+print(dog.name, dog.type, type(dog))
