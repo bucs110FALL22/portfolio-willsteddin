@@ -1,4 +1,5 @@
 import turtle
+import random
 
 def pixel(turtle, color):
     """
@@ -17,46 +18,52 @@ def pixel(turtle, color):
     turtle.end_fill()
     turtle.fd(25)
 
-def turtleArt(turtle, number):
+def turtleArt(turtle, number, name):
     """
         This function checks which bitmap number is being run and then calls the pixel() function in order to draw the correct color cube.
 
         args: turtle (this calls the turtle object named in the parameter and inserts it as a parameter into the pixel function, as well as to skip the cube if the number is 0 (blank)) number (this is an int parameter that is used to determine what the fill color of the drawn square should be)
         return: the "return" of this function is simply to run the pixel function
     """
+    if name == "goomba":
+        color1, color2, color3 = "saddlebrown", "navajowhite", "black"
+    if name == "mushroom":
+        color1, color2, color3, color4 = "red", "navajowhite", "black", "white"
     turtle.penup()
     if number == 0:
         turtle.penup()
         turtle.fd(25)
     elif number == 1:
-        pixel(turtle, "saddlebrown")
+        pixel(turtle, color1)
     elif number == 2:
-        pixel(turtle, "navajowhite")
+        pixel(turtle, color2)
     elif number == 3:
-        pixel(turtle, "black")
+        pixel(turtle, color3)
+    elif number == 4:
+        pixel(turtle, color4)
+
+def artChoose(name):
+    bitmapDict = {"goomba": [[0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0], [0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0], [0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0], [0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0], [0,0,1,3,3,1,1,1,1,1,1,3,3,1,0,0], [0,1,1,1,2,3,1,1,1,1,3,2,1,1,1,0], [0,1,1,1,2,3,3,3,3,3,3,2,1,1,1,0], [1,1,1,1,2,3,2,1,1,2,3,2,1,1,1,1], [1,1,1,1,2,2,2,1,1,2,2,2,1,1,1,1], [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], [0,1,1,1,1,2,2,2,2,2,2,1,1,1,1,0], [0,0,0,0,2,2,2,2,2,2,2,2,0,0,0,0], [0,0,3,3,2,2,2,2,2,2,2,2,3,3,0,0], [0,3,3,3,3,3,2,2,2,2,3,3,3,3,3,0], [0,3,3,3,3,3,3,2,2,3,3,3,3,3,3,0], [0,0,3,3,3,3,3,0,0,3,3,3,3,3,0,0]], "mushroom": [[], [], [], [],]}
+    result = bitmapDict[name]
+    return result
+
 
 def main():
-    goombaBitmap = [[0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0], [0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0], [0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0], [0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0], [0,0,1,3,3,1,1,1,1,1,1,3,3,1,0,0], [0,1,1,1,2,3,1,1,1,1,3,2,1,1,1,0], [0,1,1,1,2,3,3,3,3,3,3,2,1,1,1,0], [1,1,1,1,2,3,2,1,1,2,3,2,1,1,1,1], [1,1,1,1,2,2,2,1,1,2,2,2,1,1,1,1], [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], [0,1,1,1,1,2,2,2,2,2,2,1,1,1,1,0], [0,0,0,0,2,2,2,2,2,2,2,2,0,0,0,0], [0,0,3,3,2,2,2,2,2,2,2,2,3,3,0,0], [0,3,3,3,3,3,2,2,2,2,3,3,3,3,3,0], [0,3,3,3,3,3,3,2,2,3,3,3,3,3,3,0], [0,0,3,3,3,3,3,0,0,3,3,3,3,3,0,0]]
     turtle.screensize(canvwidth=400,canvheight=400,bg="white")
     smb1 = turtle.Turtle()
     smb1.ht()
     smb1.speed(0)
     origin = (-200,200)
     count = 0
-    for line in goombaBitmap:
+    for line in artChoose("goomba"):
         smb1.penup()
         smb1.setpos(origin[0], origin[1]-(count*25))
         for block in line:
-            turtleArt(smb1, block)
+            turtleArt(smb1, block, "goomba")
         count += 1
     turtle.exitonclick()
 
 main()
-
-
-
-
-
 
 
 
