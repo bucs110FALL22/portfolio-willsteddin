@@ -1,29 +1,29 @@
 import turtle
 import random
 
-def pixel(turtle, color):
+def pixel(turtle, color, pixelsize):
     """
         This function draws a small cube, or a "pixel" on the screen using the turtle module. It chooses the color of the cube based on the parameters and then moves on to the next spot to start again. 
 
         args: turtle (this calls the turtle object named in the parameter and uses it to draw the square), color (this is a string, and is used to determine the fill color of the cube)
-        return: this function returns a drawn cube on the turtle screen
+        return: None
     """
     turtle.pendown()
     turtle.pencolor("black")
     turtle.fillcolor(color)
     turtle.begin_fill()
     for i in range(4):
-        turtle.fd(25)
+        turtle.fd(pixelsize)
         turtle.right(90)
     turtle.end_fill()
-    turtle.fd(25)
+    turtle.fd(pixelsize)
 
-def turtleArt(turtle, number, name):
+def turtleArt(turtle, number, name, pixelsize):
     """
         This function checks which bitmap number is being run and then calls the pixel() function in order to draw the correct color cube.
 
         args: turtle (this calls the turtle object named in the parameter and inserts it as a parameter into the pixel function, as well as to skip the cube if the number is 0 (blank)) number (this is an int parameter that is used to determine what the fill color of the drawn square should be)
-        return: the "return" of this function is simply to run the pixel function
+        return: None
     """
     if name == "goomba":
         color1, color2, color3 = "saddlebrown", "navajowhite", "black"
@@ -36,45 +36,61 @@ def turtleArt(turtle, number, name):
         color1, color2, color3 = "darkorange", "gold", "black"
     if number == 0:
         turtle.penup()
-        turtle.fd(25)
+        turtle.fd(pixelsize)
     elif number == 1:
-        pixel(turtle, color1)
+        pixel(turtle, color1, pixelsize)
     elif number == 2:
-        pixel(turtle, color2)
+        pixel(turtle, color2, pixelsize)
     elif number == 3:
-        pixel(turtle, color3)
+        pixel(turtle, color3, pixelsize)
     elif number == 4:
-        pixel(turtle, color4)
+        pixel(turtle, color4, pixelsize)
     elif number == 5:
-        pixel(turtle, color5)
+        pixel(turtle, color5, pixelsize)
 
 def artChoose(name):
+    """
+        This function is used to input the proper bitmap into the turtleArt function, by utilizing a dictionary. 
+
+        args: name (str, is used as a key to check against the dictionary)
+        return: list (the bitmap, a list of lists to input colors into the art function)
+    """
     bitmapDict = {
         "goomba": [[0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0], [0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0], [0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0], [0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0], [0,0,1,3,3,1,1,1,1,1,1,3,3,1,0,0], [0,1,1,1,2,3,1,1,1,1,3,2,1,1,1,0], [0,1,1,1,2,3,3,3,3,3,3,2,1,1,1,0], [1,1,1,1,2,3,2,1,1,2,3,2,1,1,1,1], [1,1,1,1,2,2,2,1,1,2,2,2,1,1,1,1], [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], [0,1,1,1,1,2,2,2,2,2,2,1,1,1,1,0], [0,0,0,0,2,2,2,2,2,2,2,2,0,0,0,0], [0,0,3,3,2,2,2,2,2,2,2,2,3,3,0,0], [0,3,3,3,3,3,2,2,2,2,3,3,3,3,3,0], [0,3,3,3,3,3,3,2,2,3,3,3,3,3,3,0], [0,0,3,3,3,3,3,0,0,3,3,3,3,3,0,0]], 
         "mushroom": [[0,0,0,0,0,3,3,3,3,3,3,0,0,0,0,0], [0,0,0,3,3,1,1,1,1,4,4,3,3,0,0,0], [0,0,3,4,4,1,1,1,1,4,4,4,4,3,0,0], [0,3,4,4,1,1,1,1,1,1,4,4,4,4,3,0],[0,3,4,1,1,4,4,4,4,1,1,4,4,4,3,0],[3,1,1,1,4,4,4,4,4,4,1,1,1,1,1,3],[3,4,1,1,4,4,4,4,4,4,1,1,4,4,1,3],[3,4,1,1,4,4,4,4,4,4,1,4,4,4,4,3],[3,4,4,1,1,4,4,4,4,1,1,4,4,4,4,3],[3,4,4,1,1,1,1,1,1,1,1,1,4,4,1,3],[3,4,1,1,3,3,3,3,3,3,3,3,1,1,1,3],[0,3,3,3,2,2,3,2,2,3,2,2,3,3,3,0],[0,0,3,2,2,2,3,2,2,3,2,2,2,3,0,0],[0,0,3,2,2,2,2,2,2,2,2,2,2,3,0,0],[0,0,0,3,2,2,2,2,2,2,2,2,3,0,0,0],[0,0,0,0,3,3,3,3,3,3,3,3,0,0,0,0]], 
         "fireflower": [[0,0,0,3,3,3,3,3,3,3,3,3,3,0,0,0], [0,3,3,3,1,1,1,1,1,1,1,1,3,3,3,0], [3,3,1,1,1,2,2,2,2,2,2,1,1,1,3,3], [3,1,1,2,2,2,3,4,4,3,2,2,2,1,1,3], [3,1,1,2,2,2,3,4,4,3,2,2,2,1,1,3], [3,1,1,1,1,2,2,2,2,2,2,1,1,1,1,3], [3,3,1,1,1,1,1,1,1,1,1,1,1,1,3,3], [0,3,3,3,1,1,1,1,1,1,1,1,3,3,3,0], [0,0,0,0,3,3,3,3,3,3,3,3,0,0,0,0], [0,0,3,3,0,0,3,5,5,3,0,0,3,3,0,0], [0,3,5,5,3,0,3,5,5,3,0,3,5,5,3,0], [0,3,5,5,5,3,3,5,5,3,3,5,5,5,3,0], [0,0,3,5,5,5,3,5,5,3,5,5,5,3,0,0], [0,0,3,5,5,5,3,5,5,3,5,5,5,3,0,0], [0,0,0,3,3,5,5,5,5,5,5,3,3,0,0,0], [0,0,0,0,0,3,3,3,3,3,3,0,0,0,0,0]], 
-        "coinblock": [[3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3], [1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3], [1,2,3,2,2,2,2,2,2,2,2,2,2,3,2,3], [1,2,2,2,2,1,1,1,1,1,2,2,2,2,2,3], [1,2,2,2,1,1,3,3,3,1,1,2,2,2,2,3], [1,2,2,2,1,1,3,2,2,1,1,3,2,2,2,3], [1,2,2,2,1,1,3,2,2,1,1,3,2,2,2,3], [1,2,2,2,2,3,3,2,1,1,1,3,2,2,2,3], [1,2,2,2,2,2,2,1,1,3,3,3,2,2,2,3], [1,2,2,2,2,2,2,1,1,3,2,2,2,2,2,3], [1,2,2,2,2,2,2,2,3,3,2,2,2,2,2,3], [1,2,2,2,2,2,2,1,1,2,2,2,2,2,2,3], [1,2,2,2,2,2,2,1,1,3,2,2,2,2,2,3], [1,2,3,2,2,2,2,2,3,3,2,2,2,3,2,3], [1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3], [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3]]}
+        "coinblock": [[3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3], [1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3], [1,2,3,2,2,2,2,2,2,2,2,2,2,3,2,3], [1,2,2,2,2,1,1,1,1,1,2,2,2,2,2,3], [1,2,2,2,1,1,3,3,3,1,1,2,2,2,2,3], [1,2,2,2,1,1,3,2,2,1,1,3,2,2,2,3], [1,2,2,2,1,1,3,2,2,1,1,3,2,2,2,3], [1,2,2,2,2,3,3,2,1,1,1,3,2,2,2,3], [1,2,2,2,2,2,2,1,1,3,3,3,2,2,2,3], [1,2,2,2,2,2,2,1,1,3,2,2,2,2,2,3], [1,2,2,2,2,2,2,2,3,3,2,2,2,2,2,3], [1,2,2,2,2,2,2,1,1,2,2,2,2,2,2,3], [1,2,2,2,2,2,2,1,1,3,2,2,2,2,2,3], [1,2,3,2,2,2,2,2,3,3,2,2,2,3,2,3], [1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3], [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3]]
+        }
     result = bitmapDict[name]
     return result
 
 
-def main():
-    turtle.screensize(canvwidth=400,canvheight=400,bg="white")
+def draw(drawing, canvsize):
+    """
+        This function activates the drawing and carries it out. It initializes the screen and the turtle, and sets the speed to ensure the drawing is completed quickly. 
+
+        args: name (str, is input into artChoose() to determine which drawing to carry out), canvsize** (int, sets the size of the canvas.)
+        **canvsize must be set to a multiple of 16 for the drawing to work properly
+        return: None
+    """
+    turtle.screensize(canvwidth=canvsize,canvheight=canvsize,bg="white")
     smb1 = turtle.Turtle()
     smb1.ht()
     smb1.speed(0)
-    origin = (-200,200)
+    origin = (-1*(canvsize/2),(canvsize/2))
     count = 0
-    drawing = "coinblock"
+    pixelsize = canvsize/16
     for line in artChoose(drawing):
         smb1.penup()
-        smb1.setpos(origin[0], origin[1]-(count*25))
+        smb1.setpos(origin[0], origin[1]-(count*(canvsize/16)))
         for block in line:
-            turtleArt(smb1, block, drawing)
+            turtleArt(smb1, block, drawing, pixelsize)
         count += 1
     turtle.exitonclick()
 
-main()
+def main():
+    draw("goomba", 440)
 
+main()
 
 
