@@ -90,20 +90,6 @@ def draw(drawing, canvsize):
         count += 1
     turtle.exitonclick()
 
-# def main():
-#     bounds = 400
-#     window = pygame.display.set_mode((bounds,bounds))
-#     window.fill("white")
-#     pygame.display.flip()
-#     choosing = True
-#     while choosing:
-#         rectGoomba = ((25,25)(150,150))
-#         rectMushroom = (())
-#         rectFireflower = (())
-#         rectCoinblock = (())
-#         hitboxWidth = 200
-
-#     draw("goomba", bounds)
 
 def main():
     bounds = 400
