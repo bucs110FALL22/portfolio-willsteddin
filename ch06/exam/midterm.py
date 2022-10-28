@@ -1,5 +1,7 @@
 import turtle
-import random
+import pygame
+
+pygame.init()
 
 def pixel(turtle, color, pixelsize):
     """
@@ -88,9 +90,73 @@ def draw(drawing, canvsize):
         count += 1
     turtle.exitonclick()
 
+# def main():
+#     bounds = 400
+#     window = pygame.display.set_mode((bounds,bounds))
+#     window.fill("white")
+#     pygame.display.flip()
+#     choosing = True
+#     while choosing:
+#         rectGoomba = ((25,25)(150,150))
+#         rectMushroom = (())
+#         rectFireflower = (())
+#         rectCoinblock = (())
+#         hitboxWidth = 200
+
+#     draw("goomba", bounds)
+
 def main():
-    draw("goomba", 440)
+    bounds = 400
+    selection = True
+    font = pygame.font.Font(None, 30)
+    window = pygame.display.set_mode((400,400))
+    window.fill("white")
+    rectGoomba = ((25,25), (150,150))
+    goombaButtonBox = pygame.Rect(rectGoomba)
+    msgGoomba = font.render("Goomba", True, "black")
+    rectMushroom = ((225, 25), (150,150))
+    mushroomButtonBox = pygame.Rect(rectMushroom)
+    msgMushroom = font.render("Mushroom", True, "black")
+    rectFireflower = ((25, 225), (150,150))
+    fireflowerButtonBox = pygame.Rect(rectFireflower)
+    msgFireflower = font.render("Fire Flower", True, "black")
+    rectCoinblock = ((225,225), (150,150))
+    coinblockButtonBox = pygame.Rect(rectCoinblock)
+    msgCoinblock = font.render("Coin Block", True, "black")
+    pygame.display.flip()
+    pygame.draw.rect(window, "saddlebrown", rectGoomba)
+    window.blit(msgGoomba, (55,90))
+    pygame.draw.rect(window, "red", rectMushroom)
+    window.blit(msgMushroom, (250, 90))
+    pygame.draw.rect(window, "green", rectFireflower)
+    window.blit(msgFireflower, (45,290))
+    pygame.draw.rect(window, "gold", rectCoinblock)
+    window.blit(msgCoinblock, (245,290))
+    pygame.display.flip()
+    while selection:
+        for event in pygame.event.get():
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                mouseClickPos = event.pos
+                if goombaButtonBox.collidepoint(mouseClickPos): 
+                    window.fill("white")
+                    pygame.display.flip()
+                    draw("goomba", bounds)
+                    selection = False
+                elif mushroomButtonBox.collidepoint(mouseClickPos):
+                    window.fill("white")
+                    pygame.display.flip()
+                    draw("mushroom", bounds)
+                    selection = False
+                elif fireflowerButtonBox.collidepoint(mouseClickPos):
+                    window.fill("white")
+                    pygame.display.flip()
+                    draw("fireflower", bounds)
+                    selection = False
+                elif coinblockButtonBox.collidepoint(mouseClickPos):
+                    window.fill("white")
+                    pygame.display.flip()
+                    draw("coinblock", bounds)
+                    selection = False
+
 
 main()
-
-
