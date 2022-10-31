@@ -19,7 +19,7 @@ Given what you have learned about classes on Chapter 6, describe the ***interfac
 
 ***
 
-Come up with interfaces fot 3 possible classes you think you may need. Again, brainstorm a little. Nothing is *wrong*.
+Come up with interfaces for 3 possible classes you think you may need. Again, brainstorm a little. Nothing is *wrong*.
 
 ## Class Interface 1
 
