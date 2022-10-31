@@ -15,7 +15,7 @@ class Graph:
         for p in self.points:
             self.plotter.color(p.color)
             self.plotter.goto(p.x, p.y)
-            self.plotter.dot()
+            self.plotter.dot(5)
             turtle.exitonclick()
 
 
