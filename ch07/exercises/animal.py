@@ -4,7 +4,7 @@ class Animal:
     """ 
     Class for representing animals in a shelter. 
     """
-    def __init__(self, type, name):
+    def __init__(self, name, type):
       self.type = type
       self.name = name
       self.id = time.strftime("%d%m%M%S")

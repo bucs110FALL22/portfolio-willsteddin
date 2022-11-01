@@ -2,9 +2,9 @@ from socketserver import StreamRequestHandler
 import animal
 
 def main():
-  nezarec = animal.Animal("Pterodactyl", "Nezarec")
+  nezarec = animal.Animal("Nezarec", "Pterodactyl")
   nezarec.setAdopted()
-  print(nezarec.type, nezarec.name, nezarec.id, nezarec.date, nezarec.adoption)
+  print(nezarec.name, nezarec.type, nezarec.id, nezarec.date, nezarec.adoption)
 
 main()
   
