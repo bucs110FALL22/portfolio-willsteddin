@@ -1,9 +1,10 @@
 from socketserver import StreamRequestHandler
-import time
 import animal
 
-animal1 = animal.Animal()
+def main():
+  nezarec = animal.Animal("Pterodactyl", "Nezarec")
+  nezarec.setAdopted()
+  print(nezarec.type, nezarec.name, nezarec.id, nezarec.date, nezarec.adoption)
 
-animal1.name = "Seamus"
-animal1.type = "Canine"
-print(animal1.name, animal1.type)
+main()
+  
