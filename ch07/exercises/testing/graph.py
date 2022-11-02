@@ -17,6 +17,12 @@ class Graph:
             self.plotter.goto(p.x, p.y)
             self.plotter.dot(5)
             turtle.exitonclick()
+    
+    def __str__(self):
+        pointStr = ""
+        for p in self.points:
+            pointStr += f"{self.x}, {self.y}"
+        return f"{self.title}: {pointStr}"
 
 
 
