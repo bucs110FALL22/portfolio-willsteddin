@@ -22,13 +22,35 @@ Given what you have learned about classes on Chapter 6, describe the ***interfac
 Come up with interfaces for 3 possible classes you think you may need. Again, brainstorm a little. Nothing is *wrong*.
 
 ## Class Interface 1
+* class fish
+  * x
+  * speed
+  * type ## which kind of fish (would be an image file / sprite)
+  * caughtAnimation()
+  * move()
+  * stop()
 
 < add your interface >
 
 ## Class Interface 2
+* class player
+  * x
+  * y
+  * image
+  * throwHook()
+  * retrieveHook()
+  * hookMove()
+  * playerMove()
 
 < add your interface >
 
 ## Class Interface 3
+* class background
+  * spawnSide
+  * waterBarrier ##keeps player from walking into the water
+  * image
+  * terrain
+  * changeLocation()
+  * goToMenu()
 
 < add your interface >
